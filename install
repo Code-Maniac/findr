@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cp ./findr /usr/local/bin/findr
+chmod 755 /usr/local/bin/findr

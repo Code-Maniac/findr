@@ -1,0 +1,26 @@
+#!/bin/bash
+
+help()
+{
+    echo "Usage:" ${BASH_SOURCE[0]} "[DIR] TERM"
+    echo "List all files with the given term in the given directory"
+    echo "If no DIR specified then use ."
+}
+
+# if help then print help. otherwise continue
+while getopts ":h" option; do
+    case $option in
+        h) # display help
+            help
+            exit;;
+    esac
+done
+
+if [[ $# -eq 1 ]]; then
+    find . -type f | xargs fgrep -l $1
+elif [[ $# -eq 2 ]]; then
+    find $1 -type f | xargs fgrep -l $2
+else
+    help
+    exit 1
+fi
