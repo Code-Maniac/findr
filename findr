@@ -16,7 +16,7 @@ while getopts ":h" option; do
     esac
 done
 
-EXCLUDES="-not -iwholename '*.svn*' -not -iwholename '*.git*'"
+EXCLUDES="-not -iwholename '*.svn*' -not -iwholename '*.git*' -not -iwholename '*.vs*'"
 
 if [[ $# -eq 1 ]]; then
     find . -type f ${EXCLUDES} | xargs fgrep -l $1
